@@ -21,14 +21,10 @@ jobs:
         working-directory: frontend
         run: npm ci
 
-      - name: Run linters
-        uses: wearerequired/lint-action@v2
-        with:
-          eslint: true
-          eslint_dir: frontend
-          prettier_dir: frontend
-          prettier: true
-        
+      - name: Run ESLint
+        working-directory: frontend
+        run: npm run lint
+
   build-and-push:
     needs: code-lint
     runs-on: ubuntu-latest
